@@ -1,8 +1,7 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import CardApp from "./components/CardApp";
-import SearchGames from "./components/SearchGames";
-// Agregamos la importación
+import { Home } from "./components/views/Home"; // Asegúrate de importar tu componente Home
 
 function App() {
   return (
@@ -11,8 +10,10 @@ function App() {
         <Navbar />
       </header>
       <main>
-        <SearchGames />
-        <CardApp />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          {/* Agrega más rutas según sea necesario */}
+        </Routes>
       </main>
     </div>
   );

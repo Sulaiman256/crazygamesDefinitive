@@ -1,28 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SearchGames from "../SearchGames";
-import CardApp from "../CardApp";
+import { CardApp } from "../CardApp";
+import ENDPOINT from "../../services/endpoint";
+import axios from "axios";
 
 export function Home() {
-  // Estado local: 'searchResults' guarda los resultados de búsqueda, inicializado como null
-  const [searchResults, setSearchResults] = React.useState(null); // Función para manejar los resultados de la búsqueda y actualizar 'searchResults'
+  const [searchResults, setSearchResults] = useState([]);
+
+  const getGames = async () => {
+    try {
+      const { data } = await axios.get(`${ENDPOINT}/productos`);
+      console.log(data);
+      setSearchResults(data);
+    } catch (error) {
+      console.error("Error al obtener los productos:", error);
+    }
+  };
+
+  useEffect(() => {
+    getGames();
+  }, []);
 
   const handleSearchResults = (results) => {
-    setSearchResults(results);
+    if (Array.isArray(results)) {
+      setSearchResults(results);
+    } else {
+      console.error("Los resultados no son un array:", results);
+      setSearchResults([]);
+    }
   };
 
   return (
     <>
       <SearchGames onSearchResults={handleSearchResults} />
-      {searchResults ? (
+      {searchResults.length > 0 ? (
         <div>
-          <h2>Resultados de la búsqueda:</h2>
+          <p>Los resultados son:</p>
           <div className="columns is-multiline pt-4">
-            {searchResults?.map((item) => (
-              <CardApp {...item} />
+            {searchResults.map((item) => (
+              <CardApp key={item.id} {...item} />
             ))}
           </div>
         </div>
-      ) : null}
+      ) : (
+        <p>No hay resultados</p>
+      )}
     </>
   );
 }

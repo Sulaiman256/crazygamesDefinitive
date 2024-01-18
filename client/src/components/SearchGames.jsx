@@ -1,51 +1,60 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
 import "bulma/css/bulma.min.css";
+import axios from "axios";
 
 const SearchGames = ({ onSearchResults }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [error, setError] = useState(null);
 
+  useEffect(() => {
+    if (searchTerm !== "") {
+      handleSearch();
+      return;
+    }
+  }, [searchTerm]);
+
+  const handleInputChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
   const handleSearch = async () => {
     try {
-      const response = await axios.get(
+      const { data, status } = await axios.get(
         `http://localhost:3001/api/productos/search?searchTerm=${searchTerm}`
       );
 
-      if (response.status !== 200 || response.data.length === 0) {
-        setError("No hay resultados para esta búsqueda.");
+      if (status !== 200 || data.length === 0) {
+        setError("No hay resultados para esta búsqueda!!!");
         onSearchResults([]);
         return;
       }
 
-      setError(null);
-      onSearchResults(response.data);
+      setError("");
+      onSearchResults(data);
     } catch (error) {
-      setError("Error al buscar juegos.");
-      console.error("Error searching for games:", error);
+      console.error("Error en la solicitud HTTP", error);
+      setError("Error en la solicitud HTTP");
     }
   };
 
   return (
-    <div className="container">
-      <h2 className="title is-3">Buscar Juegos</h2>
-      <div className="field has-addons">
-        <div className="control is-expanded">
+    <div>
+      <div className="field has-addons pt-3">
+        <div className="control">
           <input
             className="input"
-            type="text"
+            type="search"
+            placeholder="Buscar un juego"
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Ingrese el nombre del juego"
+            onChange={handleInputChange}
           />
         </div>
         <div className="control">
           <button className="button is-primary" onClick={handleSearch}>
-            Buscar
+            Search
           </button>
         </div>
       </div>
-      {error ? <p className="has-text-danger">{error}</p> : null}
+      {error && <p className="has-text-danger">{error}</p>}
     </div>
   );
 };

@@ -11,6 +11,33 @@ const getAllProductos = async (req, res) => {
   }
 };
 
+const searchProductos = async (req, res) => {
+  try {
+    const searchTerm = req.params.name;
+
+    console.log("Search term:", searchTerm);
+
+    const result = await db.any("SELECT * FROM productos LIKE", [
+      `%${searchTerm}%`,
+    ]);
+    console.log("Consulta SQL:", "SELECT * FROM productos WHERE name LIKE", [
+      `%${searchTerm}%`,
+    ]);
+
+    console.log("Search results:", result);
+
+    if (result.length === 0) {
+      res.json({ message: "No se encontraron productos." });
+    } else {
+      res.json(result);
+    }
+  } catch (error) {
+    console.error("Error en la búsqueda:", error);
+    res.status(500).json({ error: "Error interno del servidor" });
+  }
+};
+
 module.exports = {
   getAllProductos,
+  searchProductos,
 };
