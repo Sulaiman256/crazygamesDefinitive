@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "bulma/css/bulma.min.css";
+import logoWeb from "../img/logopaginaweb.png";
 
 function Navbar() {
   return (
@@ -21,7 +22,7 @@ function Navbar() {
           style={{ padding: "10px" }}
         >
           <img
-            src="ruta/a/tu/logo.png" // Ruta a tu logo
+            src={logoWeb} // Ruta a tu logo
             alt="CrazyGames Logo"
             style={{ maxHeight: "50px" }} // Ajusta la altura según tu diseño
           />

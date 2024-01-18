@@ -13,19 +13,11 @@ const getAllProductos = async (req, res) => {
 
 const searchProductos = async (req, res) => {
   try {
-    const searchTerm = req.params.name;
-
-    console.log("Search term:", searchTerm);
-
-    const result = await db.any("SELECT * FROM productos LIKE", [
+    const searchTerm = req.query.searchTerm;
+    const result = await db.any("SELECT * FROM productos WHERE name ILIKE $1", [
       `%${searchTerm}%`,
     ]);
-    console.log("Consulta SQL:", "SELECT * FROM productos WHERE name LIKE", [
-      `%${searchTerm}%`,
-    ]);
-
-    console.log("Search results:", result);
-
+    console.log("Search results yeah:", result);
     if (result.length === 0) {
       res.json({ message: "No se encontraron productos." });
     } else {
