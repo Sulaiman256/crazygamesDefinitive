@@ -1,14 +1,21 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Switch } from "react-router-dom";
-import Navbar from "./Navbar";
+import Navbar from "./components/Navbar";
+import CardApp from "./components/CardApp";
+import SearchGames from "./components/SearchGames";
+// Agregamos la importación
 
-const App = () => {
+function App() {
   return (
-    <Router>
-      <Navbar />
-      <Switch>{/* Define tus rutas aquí */}</Switch>
-    </Router>
+    <div className="App">
+      <header>
+        <Navbar />
+      </header>
+      <main>
+        <SearchGames />
+        <CardApp />
+      </main>
+    </div>
   );
-};
+}
 
 export default App;
