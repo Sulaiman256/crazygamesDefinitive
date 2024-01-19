@@ -21,7 +21,6 @@ const registerUsers = async (req, res) => {
     res.status(500).json({ error: "Error interno del servidor" });
   }
 };
-
 const loginUsers = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -32,13 +31,16 @@ const loginUsers = async (req, res) => {
       });
     }
 
-    const user = await db.oneOrNone("SELECT * FROM users WHERE email", email);
+    const user = await db.oneOrNone(
+      "SELECT * FROM users WHERE email = $1 AND password = $2",
+      [email, password]
+    );
 
-    if (!user || user.password !== password) {
+    if (!user) {
       return res.status(401).json({ error: "Credenciales incorrectas." });
     }
 
-    res.json({ success: true, user: user }); // Puedes ajustar la respuesta según tus necesidades
+    res.json({ success: true, user: user });
   } catch (error) {
     console.error("Error al intentar iniciar sesión", error);
     res.status(500).json({ error: "Error interno del servidor" });

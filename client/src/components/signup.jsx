@@ -6,30 +6,29 @@ const Signup = ({ onClose }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const response = await axios.post(`${ENDPOINT}/users`, {
-        nombre: name,
-        email: email,
-        password: password,
+        name,
+        email,
+        password,
       });
 
-      if (response.status === 200) {
-        const data = response.data;
-        if (data.success) {
-          console.log("Registro exitoso:", data.success);
-          // Puedes manejar la creación de sesión aquí si es necesario
-        } else {
-          console.error("Error en el registro:", data.error);
-        }
+      const data = response.data;
+
+      if (response.status === 200 && data.success) {
+        console.log("Registro exitoso:", data.success);
+        // Puedes manejar la creación de sesión aquí si es necesario
       } else {
-        console.error("Respuesta no válida del servidor");
+        setErrorMessage(data.error || "Error en el registro");
       }
     } catch (error) {
       console.error("Error en la solicitud:", error.message);
+      setErrorMessage(error.response?.data?.error || "Error desconocido");
     }
 
     // Limpiar los campos después de enviar el formulario
@@ -37,7 +36,7 @@ const Signup = ({ onClose }) => {
     setEmail("");
     setPassword("");
 
-    // Cerrar el modal
+    // Cerrar el modal si lo deseas
     onClose();
   };
 
@@ -47,11 +46,17 @@ const Signup = ({ onClose }) => {
       <div className="modal-content">
         <div className="box">
           <h2 className="title">Registrarse</h2>
+          {errorMessage && (
+            <div className="notification is-danger">{errorMessage}</div>
+          )}
           <form onSubmit={handleFormSubmit}>
             <div className="field">
-              <label className="label">Nombre</label>
+              <label htmlFor="name" className="label">
+                Nombre
+              </label>
               <div className="control">
                 <input
+                  id="name"
                   className="input"
                   type="text"
                   placeholder="Nombre"
@@ -62,9 +67,12 @@ const Signup = ({ onClose }) => {
               </div>
             </div>
             <div className="field">
-              <label className="label">Correo Electrónico</label>
+              <label htmlFor="email" className="label">
+                Correo Electrónico
+              </label>
               <div className="control">
                 <input
+                  id="email"
                   className="input"
                   type="email"
                   placeholder="Correo Electrónico"
@@ -75,9 +83,12 @@ const Signup = ({ onClose }) => {
               </div>
             </div>
             <div className="field">
-              <label className="label">Contraseña</label>
+              <label htmlFor="password" className="label">
+                Contraseña
+              </label>
               <div className="control">
                 <input
+                  id="password"
                   className="input"
                   type="password"
                   placeholder="Contraseña"

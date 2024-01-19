@@ -17,18 +17,10 @@ const Login = ({ onClose }) => {
     e.preventDefault();
 
     try {
-      const { status, data } = await axios.post(
-        `${ENDPOINT}/users/login`,
-        {
-          email,
-          password,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const { status, data } = await axios.post(`${ENDPOINT}/users/login`, {
+        email,
+        password,
+      });
 
       if (status !== 200) return;
       if (data.success) {
@@ -57,9 +49,12 @@ const Login = ({ onClose }) => {
           )}
           <form onSubmit={handleFormSubmit}>
             <div className="field">
-              <label className="label">Correo Electrónico</label>
+              <label htmlFor="email" className="label">
+                Correo Electrónico
+              </label>
               <div className="control">
                 <input
+                  id="email"
                   className="input"
                   type="email"
                   placeholder="Correo Electrónico"
@@ -70,9 +65,12 @@ const Login = ({ onClose }) => {
               </div>
             </div>
             <div className="field">
-              <label className="label">Contraseña</label>
+              <label htmlFor="password" className="label">
+                Contraseña
+              </label>
               <div className="control">
                 <input
+                  id="password"
                   className="input"
                   type="password"
                   placeholder="Contraseña"
