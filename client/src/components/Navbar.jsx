@@ -1,27 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "bulma/css/bulma.min.css";
 import logoWeb from "../img/logopaginaweb.png";
 import Signup from "./signup";
 import Login from "./login";
 import Logout from "./logout";
+import UserIcons from "./UserIcons";
 
 function Navbar() {
   const navigate = useNavigate();
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
-  const [authenticated, setAuthenticate] = useState(false);
-
-  useEffect(() => {
-    const token = sessionStorage.getItem("token");
-    if (token) {
-      setAuthenticate(true);
-    }
-  }, []);
+  const [authenticated, setAuthenticated] = useState(
+    !!sessionStorage.getItem("token")
+  );
 
   const handleLoginClick = () => {
     setShowLogin(true);
     setShowSignup(false);
+
+    // Aquí actualizamos el estado directamente al iniciar sesión
+    setAuthenticated(true);
   };
 
   const handleSignupClick = () => {
@@ -31,7 +30,10 @@ function Navbar() {
 
   const handleLogoutClick = () => {
     sessionStorage.removeItem("token");
-    setAuthenticate(false);
+
+    // Aquí actualizamos el estado directamente al cerrar sesión
+    setAuthenticated(false);
+
     navigate("/", { replace: true });
   };
 
@@ -106,9 +108,14 @@ function Navbar() {
           <div className="navbar-item">
             <div className="buttons">
               {authenticated ? (
-                <Logout onLogout={handleLogoutClick} />
+                <>
+                  {/* Agrega el botón de cierre de sesión */}
+                  <Logout onLogout={handleLogoutClick} />
+                  <UserIcons authenticated={authenticated} />
+                </>
               ) : (
                 <>
+                  {/* Agrega el botón de inicio de sesión */}
                   <a
                     className="button is-primary"
                     href="#"

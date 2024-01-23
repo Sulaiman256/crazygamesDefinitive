@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import { Home } from "./components/views/Home"; // Asegúrate de importar tu componente Home
+import { Home } from "./components/views/Home";
 
 function App() {
   return (
