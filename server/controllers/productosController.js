@@ -17,7 +17,7 @@ const searchProductos = async (req, res) => {
     const result = await db.any("SELECT * FROM productos WHERE name ILIKE $1", [
       `%${searchTerm}%`,
     ]);
-    console.log("Search results yeah:", result);
+    console.log("Search results:", result);
     if (result.length === 0) {
       res.json({ message: "No se encontraron productos." });
     } else {
