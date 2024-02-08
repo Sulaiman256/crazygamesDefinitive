@@ -48,17 +48,17 @@ const getGameFeatures = async (req, res) => {
     // Realiza la consulta para obtener las características del juego
     const gameFeatures = await db.oneOrNone(
       `SELECT
-        p.name AS productName,
-        d.name AS developer,
-        di.name AS distributor,
-        g.name AS genre,
-        fl.release_date AS releaseDate
-      FROM productos p
-      LEFT JOIN desarrolladores d ON p.desarrolladorid = d.id
-      LEFT JOIN distribuidores di ON p.distribuidorid = di.id
-      LEFT JOIN generos g ON p.generoid = g.id
-      LEFT JOIN fechalanzamientos fl ON p.fechalanzamientoid = fl.id
-      WHERE p.id = $1`,
+        productos.name AS productName,
+        desarrolladores.developer AS developer,
+        distribuidores.distributor AS distributor,
+        fechalanzamiento.releasedate AS releaseDate,
+        generos.gender AS gender
+      FROM productos
+      INNER JOIN desarrolladores ON productos.desarrolladorid = desarrolladores.id
+      INNER JOIN distribuidores ON productos.distribuidorid = distribuidores.id
+      INNER JOIN fechalanzamiento ON productos.fechalanzamientoid = fechalanzamiento.id
+      INNER JOIN generos ON productos.generoid = generos.id
+      WHERE productos.id = $1`,
       [productId]
     );
 
