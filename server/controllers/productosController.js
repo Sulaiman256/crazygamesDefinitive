@@ -87,7 +87,7 @@ const getGameVisuals = async (req, res) => {
 
     // Obtener las imágenes del juego
     const images = await db.any(
-      "SELECT imagem FROM imagenes WHERE producto_id = $1",
+      "SELECT imagen FROM imagenes WHERE producto_id = $1",
       [productId]
     );
 
