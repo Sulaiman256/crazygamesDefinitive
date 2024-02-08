@@ -1,31 +1,27 @@
 import React, { useState, useEffect } from "react";
+import io from "socket.io-client";
+
+const socket = io("http://localhost:3000"); // Asegúrate de usar la misma URL que tu servidor Express
 
 const DetectUsers = () => {
-  const [userCount, setUserCount] = useState(0);
+  const [activeUsers, setActiveUsers] = useState(0);
 
   useEffect(() => {
-    // Simula la conexión a un servidor de WebSocket o alguna lógica para contar usuarios
-    const socket = new WebSocket("ws://localhost:3001"); // Reemplaza con tu URL de WebSocket si tienes una
-
-    // Incrementa el contador cuando un usuario se conecta
-    socket.addEventListener("open", () => {
-      setUserCount((prevCount) => prevCount + 1);
+    // Escuchar eventos del servidor y actualizar el estado
+    socket.on("activeUsers", (count) => {
+      setActiveUsers(count);
     });
 
-    // Decrementa el contador cuando un usuario se desconecta
-    socket.addEventListener("close", () => {
-      setUserCount((prevCount) => Math.max(prevCount - 1, 0));
-    });
-
+    // Limpiar el evento al desmontar el componente
     return () => {
-      // Cierra la conexión al desmontar el componente
-      socket.close();
+      socket.off("activeUsers");
     };
   }, []);
 
   return (
-    <div className="user-count-container">
-      <p>Cantidad de usuarios en esta página: {userCount}</p>
+    <div>
+      <p>Usuarios activos: {activeUsers}</p>
+      {/* Resto de tu aplicación React */}
     </div>
   );
 };
