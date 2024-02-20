@@ -8,6 +8,7 @@ const GameFeatures = ({ productId }) => {
     releasedate: "",
     genre: "",
   });
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchGameFeatures = async () => {
@@ -15,14 +16,30 @@ const GameFeatures = ({ productId }) => {
         const response = await axios.get(
           `http://localhost:3001/api/productos/${productId}/features`
         );
-        setGameFeatures(response.data);
+        // Formatear la fecha para mostrar solo la fecha (sin la zona horaria)
+        const formattedReleaseDate = new Date(
+          response.data.releasedate
+        ).toLocaleDateString(undefined, {
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+        });
+        setGameFeatures({
+          ...response.data,
+          releasedate: formattedReleaseDate,
+        });
       } catch (error) {
         console.error("Error fetching game features:", error);
+        setError("Error fetching game features");
       }
     };
 
     fetchGameFeatures();
   }, [productId]);
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
 
   return (
     <div>
@@ -34,7 +51,7 @@ const GameFeatures = ({ productId }) => {
         <strong>Distribuidor:</strong> {gameFeatures.distributor}
       </div>
       <div>
-        <strong>Fecha de Lanzamiento:</strong> {gameFeatures.releaseDate}
+        <strong>Fecha de Lanzamiento:</strong> {gameFeatures.releasedate}
       </div>
       <div>
         <strong>Género:</strong> {gameFeatures.genre}

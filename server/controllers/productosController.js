@@ -51,12 +51,12 @@ const getGameFeatures = async (req, res) => {
       productos.name AS productName,
       desarrolladores.developer AS developer,
       distribuidores.distributor AS distributor,
-      fechalanzamiento.releasedate AS releaseDate,
+      fechaLanzamiento.releasedate AS releasedate,
       generos.gender AS genre
   FROM productos
   INNER JOIN desarrolladores ON productos.desarrolladorid = desarrolladores.id
   INNER JOIN distribuidores ON productos.distribuidorid = distribuidores.id
-  INNER JOIN fechalanzamiento ON productos.fechalanzamientoid = fechalanzamiento.id
+  INNER JOIN fechaLanzamiento ON productos.fechaLanzamientoid = fechaLanzamiento.id
   INNER JOIN generos ON productos.generoid = generos.id
   WHERE productos.id = $1;
   `,
