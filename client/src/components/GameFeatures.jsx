@@ -5,7 +5,7 @@ const GameFeatures = ({ productId }) => {
   const [gameFeatures, setGameFeatures] = useState({
     developer: "",
     distributor: "",
-    releaseDate: "",
+    releasedate: "",
     genre: "",
   });
 

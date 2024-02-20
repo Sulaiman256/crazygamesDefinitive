@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const ButtonsAndPriceGameDetails = ({ productId }) => {
-  const [price, setPrice] = useState("");
+  const [precio, setPrecio] = useState(""); // Cambié el nombre de la variable a 'precio'
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchProductPrice = async () => {
@@ -11,9 +13,12 @@ const ButtonsAndPriceGameDetails = ({ productId }) => {
         const response = await axios.get(
           `http://localhost:3001/api/productos/${productId}`
         );
-        setPrice(response.data.price);
+        setPrecio(response.data.precio); // Cambié el nombre de la propiedad a 'precio'
       } catch (error) {
         console.error("Error fetching product price:", error);
+        setError("Error fetching product price");
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -25,9 +30,18 @@ const ButtonsAndPriceGameDetails = ({ productId }) => {
     console.log("Realizando la compra ahora");
   };
 
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
+
   return (
     <div>
-      <p>Precio: ${price}</p>
+      <p>Precio: ${precio}</p>{" "}
+      {/* Cambié el nombre de la variable a 'precio' */}
       <Link to="/carrito">
         <span className="icon">
           <i className="material-icons">shopping_cart</i>
