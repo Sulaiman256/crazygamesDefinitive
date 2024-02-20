@@ -35,7 +35,6 @@ const Visuals = ({ productId }) => {
             height="315"
             src={videoUrl}
             title="Trailer"
-            frameBorder="0"
             allowFullScreen
           ></iframe>
         </div>

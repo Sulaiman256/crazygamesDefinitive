@@ -7,6 +7,7 @@ const getCoverByProductId = async (req, res) => {
       "SELECT cover FROM cover WHERE producto_id = $1",
       [productId]
     );
+
     res.json(result);
   } catch (error) {
     console.error("Error fetching cover data:", error);
