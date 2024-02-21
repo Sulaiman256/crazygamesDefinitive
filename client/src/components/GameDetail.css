@@ -1,0 +1,115 @@
+/* GameDetail.css */
+.game-detail-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.game-detail-container h1 {
+  color: #333;
+}
+
+.error-message {
+  color: #ff0000;
+}
+
+.state-game-container {
+  margin-top: 20px;
+}
+
+.state-game-details {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.state-game-details .product-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.state-game-details .platform-info,
+.state-game-details .stock-info {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.state-game-details .icon {
+  margin-right: 5px;
+  font-size: 18px;
+}
+
+.state-game-details .green {
+  color: #4caf50;
+}
+
+.state-game-details .red {
+  color: #f44336;
+}
+
+.description-container {
+  margin-top: 20px;
+}
+
+.description-container h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.description-content {
+  color: #666;
+  line-height: 1.6;
+}
+.game-detail-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.game-detail-container h1 {
+  color: #333;
+}
+
+.error-message {
+  color: #ff0000;
+}
+
+.state-game-container {
+  margin-top: 20px;
+}
+
+.state-game-details {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.state-game-details .product-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.state-game-details .platform-info,
+.state-game-details .stock-info {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.state-game-details .icon {
+  margin-right: 5px;
+  font-size: 18px;
+}
+
+.state-game-details .green {
+  color: #4caf50;
+}
+
+.state-game-details .red {
+  color: #f44336;
+}

@@ -1,0 +1,37 @@
+iframe {
+  z-index: 2; /* Ajusta el valor según sea necesario */
+}
+
+.image-gallery {
+  z-index: 1; /* Ajusta el valor según sea necesario */
+}
+
+.image-gallery img {
+  max-width: 100%; /* Ajusta el ancho máximo según sea necesario */
+  max-height: 300px; /* Ajusta la altura máxima según sea necesario */
+  /* O cualquier otra propiedad de estilo que necesites */
+}
+
+.visual-container {
+  margin-top: 20px;
+}
+
+.video-container {
+  margin-top: 20px;
+}
+
+.video-container h3 {
+  color: #333;
+}
+
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.image-gallery img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}

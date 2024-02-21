@@ -1,0 +1,28 @@
+.game-features-container {
+  margin-top: 20px;
+}
+
+.game-features-container h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.game-feature {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.game-feature strong {
+  margin-right: 5px;
+}
+
+.game-image-center-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.game-image img {
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

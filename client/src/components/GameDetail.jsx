@@ -8,6 +8,7 @@ import ButtonsAndPriceGameDetails from "./ButtonsAndPriceGameDetails";
 import GameFeatures from "./GameFeatures";
 import Visuals from "./Visuals";
 import Description from "./Description";
+import "./GameDetail.css";
 
 const GameDetails = () => {
   const { id } = useParams();

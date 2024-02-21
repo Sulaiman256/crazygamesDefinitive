@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "./GameImageCenter.css";
 
 const GameImageCenter = ({ productId }) => {
   const [productData, setProductData] = useState({});

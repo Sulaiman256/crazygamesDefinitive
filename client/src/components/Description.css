@@ -1,0 +1,13 @@
+.description-container {
+  margin-top: 20px;
+}
+
+.description-container h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.description-content {
+  color: #666;
+  line-height: 1.6;
+}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./GameFeatures.css";
 
 const GameFeatures = ({ productId }) => {
   const [gameFeatures, setGameFeatures] = useState({

@@ -80,6 +80,9 @@ const getGameVisuals = async (req, res) => {
   try {
     const productId = req.params.id;
 
+    // Añadir mensaje de consola antes de la operación que obtiene las imágenes
+    console.log("Obteniendo imágenes para el producto con ID:", productId);
+
     // Obtener el video (trailer) del juego
     const video = await db.oneOrNone(
       "SELECT video FROM video WHERE producto_id = $1",
@@ -91,6 +94,9 @@ const getGameVisuals = async (req, res) => {
       "SELECT imagen FROM imagenes WHERE producto_id = $1",
       [productId]
     );
+
+    // Añadir mensaje de consola después de la operación que obtiene las imágenes
+    console.log("Imágenes obtenidas con éxito");
 
     res.json({ video, images });
   } catch (error) {

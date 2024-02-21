@@ -1,0 +1,40 @@
+.buttons-and-price-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.buttons-and-price-container p {
+  font-size: 18px;
+  color: #333;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
+.buttons a,
+.buttons button {
+  margin-left: 10px;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.buttons a.shopping-cart {
+  background-color: #007bff;
+}
+
+.buttons button.is-primary {
+  background-color: #28a745;
+}
+
+.buttons a.shopping-cart:hover,
+.buttons button.is-primary:hover {
+  background-color: #0056b3;
+}

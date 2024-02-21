@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "./Description.css";
 
 const Description = ({ productId }) => {
   const [description, setDescription] = useState("");

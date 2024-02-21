@@ -1,0 +1,10 @@
+/* DetectUsers.css */
+.detect-users-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.detect-users-container p {
+  font-size: 18px;
+  color: #333;
+}
