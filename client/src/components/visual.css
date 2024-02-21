@@ -1,16 +1,4 @@
-iframe {
-  z-index: 2; /* Ajusta el valor según sea necesario */
-}
-
-.image-gallery {
-  z-index: 1; /* Ajusta el valor según sea necesario */
-}
-
-.image-gallery img {
-  max-width: 100%; /* Ajusta el ancho máximo según sea necesario */
-  max-height: 300px; /* Ajusta la altura máxima según sea necesario */
-  /* O cualquier otra propiedad de estilo que necesites */
-}
+/* Visuals.css */
 
 .visual-container {
   margin-top: 20px;
@@ -22,16 +10,35 @@ iframe {
 
 .video-container h3 {
   color: #333;
+  font-size: 24px;
 }
 
 .image-gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-top: 20px;
 }
 
 .image-gallery img {
-  max-width: 100%;
+  max-width: 48%; /* Para que las imágenes ocupen la mitad del ancho */
   height: auto;
   margin-bottom: 10px;
+}
+
+.description-container {
+  margin-top: 20px;
+}
+
+.description-container h3 {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.description-content {
+  color: #ccc;
+  font-size: 18px;
+  line-height: 1.6;
 }

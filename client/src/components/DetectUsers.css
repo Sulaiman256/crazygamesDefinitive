@@ -1,10 +1,14 @@
 /* DetectUsers.css */
 .detect-users-container {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   margin-top: 20px;
 }
 
 .detect-users-container p {
   font-size: 18px;
   color: #333;
+  margin-bottom: 10px;
 }

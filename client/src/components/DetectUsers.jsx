@@ -20,7 +20,7 @@ const DetectUsers = () => {
   }, []);
 
   return (
-    <div>
+    <div className="detect-users-container">
       <p>Usuarios activos: {activeUsers}</p>
       {/* Resto de tu aplicación React */}
     </div>

@@ -1,10 +1,10 @@
 .cover-container {
   text-align: center;
-  margin-top: 20px;
+  overflow: hidden;
 }
 
 .cover-container img {
-  max-width: 100%;
-  height: auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  width: 100%;
 }

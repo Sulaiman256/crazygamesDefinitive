@@ -4,6 +4,7 @@
 
 .game-features-container h2 {
   color: #333;
+  font-size: 24px;
   margin-bottom: 10px;
 }
 
@@ -16,13 +17,30 @@
   margin-right: 5px;
 }
 
-.game-image-center-container {
-  text-align: center;
+/* Visuals.css */
+
+.visual-container {
   margin-top: 20px;
 }
 
-.game-image img {
-  max-width: 100%;
+.video-container {
+  margin-top: 20px;
+}
+
+.video-container h3 {
+  color: #333;
+  font-size: 24px;
+}
+
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.image-gallery img {
+  max-width: 48%;
   height: auto;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
 }

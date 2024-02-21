@@ -15,7 +15,6 @@ const GameDetails = () => {
 
   return (
     <div>
-      <h1>Detalles del Juego</h1>
       <CoverDetail productId={id} />
       <GameImageCenter productId={id} />
       <StateGame productId={id} />

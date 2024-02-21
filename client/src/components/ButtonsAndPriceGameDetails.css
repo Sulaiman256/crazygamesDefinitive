@@ -1,40 +1,58 @@
+/* ButtonsAndPriceGameDetails.css */
+
 .buttons-and-price-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   margin-top: 20px;
 }
 
 .buttons-and-price-container p {
-  font-size: 18px;
+  font-size: 24px;
   color: #333;
+  margin-bottom: 10px;
 }
 
 .buttons {
   display: flex;
+  justify-content: center;
   align-items: center;
+  margin-top: 10px;
 }
 
-.buttons a,
-.buttons button {
+.cart-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.cart-container .icon {
+  margin-right: 5px;
+  font-size: 18px;
+}
+
+.cart-buttons {
+  display: flex;
+  margin-top: 10px;
+}
+
+.cart-buttons button {
   margin-left: 10px;
-  color: #fff;
-  text-decoration: none;
-  padding: 10px;
+  padding: 12px;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.buttons a.shopping-cart {
+.cart-buttons .add-to-cart {
   background-color: #007bff;
 }
 
-.buttons button.is-primary {
+.cart-buttons .buy-now {
   background-color: #28a745;
 }
 
-.buttons a.shopping-cart:hover,
-.buttons button.is-primary:hover {
+.cart-buttons button:hover {
   background-color: #0056b3;
 }

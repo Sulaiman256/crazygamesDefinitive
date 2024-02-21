@@ -31,7 +31,7 @@ const CoverDetail = ({ productId }) => {
   }, [productId]);
 
   return (
-    <div>
+    <div className="cover-container">
       {error && <div>{error}</div>}
       {/* Render cover details using coverData */}
       <img src={coverData.cover} alt="Cover" />
