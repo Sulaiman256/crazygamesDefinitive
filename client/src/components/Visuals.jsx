@@ -39,29 +39,39 @@ const Visuals = ({ productId }) => {
       {error && <div className="error-message">{error}</div>}
 
       {videoUrl && (
-        <div className="video-container">
-          <h3>Trailer</h3>
-          <div className="image-gallery">
-            <iframe
-              src={videoUrl}
-              title="Video"
-              frameborder="0"
-              allowFullScreen
-            ></iframe>
+        <div
+          className="columns mt-5"
+          style={{ display: "flex", justifyContent: "center" }}
+        >
+          <div className="column is-6">
+            <div className="image-gallery">
+              <video
+                src={videoUrl}
+                controls
+                style={{ borderRadius: "10px" }}
+              ></video>
+            </div>
           </div>
         </div>
       )}
-
-      {images.length > 0 && (
-        <div>
-          <h3>Imágenes del Producto</h3>
-          <div className="image-gallery">
+      <div
+        className="columns"
+        style={{ display: "flex", justifyContent: "center" }}
+      >
+        {images.length > 0 && (
+          <>
             {images.map((image, index) => (
-              <img key={index} src={image.imagen} alt={`Imagen ${index + 1}`} />
+              <div className="column is-3" key={index}>
+                <img
+                  key={index}
+                  src={image.imagen}
+                  alt={`Imagen ${index + 1}`}
+                />
+              </div>
             ))}
-          </div>
-        </div>
-      )}
+          </>
+        )}
+      </div>
     </div>
   );
 };

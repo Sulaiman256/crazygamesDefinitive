@@ -17,10 +17,9 @@ const UserIcons = ({ authenticated }) => {
               <i className="material-icons">account_circle</i>
             </span>
           </Link>
-          {/* Agrega el botón de cierre de sesión aquí si es necesario */}
         </>
       ) : (
-        <>{/* Agrega el botón de inicio de sesión y registro aquí */}</>
+        <></>
       )}
     </div>
   );

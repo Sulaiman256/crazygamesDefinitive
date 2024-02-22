@@ -13,13 +13,6 @@
   font-size: 24px;
 }
 
-.image-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
 .image-gallery img {
   max-width: 48%; /* Para que las imágenes ocupen la mitad del ancho */
   height: auto;

@@ -47,23 +47,15 @@ const ButtonsAndPriceGameDetails = ({ productId }) => {
     <div className="buttons-and-price-container">
       <p>Precio: ${precio}</p>
       <div className="buttons">
-        <Link to="/carrito">
-          <span className="icon">
-            <i className="material-icons">shopping_cart</i>
-          </span>
-        </Link>
         <div className="cart-container">
-          <span className="icon">
-            <i className="material-icons">shopping_cart</i>
-          </span>
           <div className="cart-buttons">
-            <button className="add-to-cart" onClick={handleAddToCart}>
+            <button className="button is-success" onClick={handleAddToCart}>
               Añadir a la cesta
-              <span className="icon">
+              <span className="icon" style={{ marginLeft: "5px" }}>
                 <i className="material-icons">shopping_cart</i>
               </span>
             </button>
-            <button className="buy-now" onClick={handleBuyNow}>
+            <button className="button is-primary" onClick={handleBuyNow}>
               Comprar Ahora
             </button>
           </div>
