@@ -44,20 +44,18 @@ function Navbar() {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
+        {/* Elimina el texto CrazyGames y utiliza solo el logo como enlace */}
         <a className="navbar-item" href="/">
-          CrazyGames
+          {/* Comentario: CrazyGames */}
         </a>
 
-        <div
-          className="navbar-item has-text-centered"
-          style={{ padding: "10px" }}
-        >
+        <a className="navbar-item" href="/">
           <img
             src={logoWeb}
             alt="CrazyGames Logo"
             style={{ maxHeight: "50px" }}
           />
-        </div>
+        </a>
 
         <a
           role="button"

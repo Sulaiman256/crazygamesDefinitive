@@ -25,13 +25,16 @@ const Description = ({ productId }) => {
   }, [productId]);
 
   return (
-    <div>
-      <h3>Descripción</h3>
-      <p>
-        <p>{description && description.description}</p>
-      </p>
+    <div className="columns is-centered mt-5">
+      <div className="column is-half">
+        <div className="box">
+          <h3 className="title is-4 has-text-centered">Descripción</h3>
+          <p className="has-text-centered">
+            {description && description.description}
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
-
 export default Description;

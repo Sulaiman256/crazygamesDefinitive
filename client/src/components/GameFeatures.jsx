@@ -41,24 +41,28 @@ const GameFeatures = ({ productId }) => {
   if (error) {
     return <p>Error: {error}</p>;
   }
-
   return (
-    <div>
-      <h2>Acerca del Juego</h2>
-      <div>
-        <strong>Desarrollador:</strong> {gameFeatures.developer}
-      </div>
-      <div>
-        <strong>Distribuidor:</strong> {gameFeatures.distributor}
-      </div>
-      <div>
-        <strong>Fecha de Lanzamiento:</strong> {gameFeatures.releasedate}
-      </div>
-      <div>
-        <strong>Género:</strong> {gameFeatures.genre}
+    <div className="columns is-centered mt-5">
+      <div className="column is-half">
+        <div className="box">
+          <h2 className="title is-4 has-text-centered">Acerca del Juego</h2>
+          <div className="content">
+            <p className="has-text-centered">
+              <strong>Desarrollador:</strong> {gameFeatures.developer}
+            </p>
+            <p className="has-text-centered">
+              <strong>Distribuidor:</strong> {gameFeatures.distributor}
+            </p>
+            <p className="has-text-centered">
+              <strong>Fecha de Lanzamiento:</strong> {gameFeatures.releasedate}
+            </p>
+            <p className="has-text-centered">
+              <strong>Género:</strong> {gameFeatures.genre}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
 };
-
 export default GameFeatures;
