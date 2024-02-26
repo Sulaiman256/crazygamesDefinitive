@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "bulma/css/bulma.min.css";
 import logoWeb from "../img/logopaginaweb.png";
 import Signup from "./signup";
@@ -72,15 +73,15 @@ function Navbar() {
 
       <div id="navbarBasicExample" className="navbar-menu">
         <div className="navbar-start">
-          <a href="/" className="navbar-item">
+          <Link to="/" className="navbar-item">
             Home
-          </a>
-          <a href="/admin" className="navbar-item">
+          </Link>
+          <Link to="/admin" className="navbar-item">
             Admin
-          </a>
-          <a href="/users" className="navbar-item">
+          </Link>
+          <Link to="/users" className="navbar-item">
             Users
-          </a>
+          </Link>
           <div className="navbar-item has-dropdown is-hoverable">
             <a href="/platforms" className="navbar-link">
               Platforms
